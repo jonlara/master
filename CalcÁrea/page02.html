@@ -24,8 +24,63 @@
 			    margin-top: 50px;
 			}
 
+			.container-calculo{
+				margin-top: 50px;
+			}
+
+			.container-calculo input{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.valor01{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+
+				position: absolute;
+
+			}
+
+			.valor02{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
 			.retangulo{
-				background: #42d692; width: 200px; height: 150px;
+				background: #42d692; width: 700px; height: 350px;
+			}
+
+			.sinal_soma{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_subtrai{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_multiplica{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_divide{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
 			}
 		</style>
 	</head>
@@ -39,23 +94,117 @@
 			</div>
 			<div class="container-figuras">
 				<div class="row text-center">
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col-2">
+						<h3 class="valor01">10</h3>
+					</div>
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col"></div>
+					<div class="col"></div>
+				</div>
+				<div class="row text-center">
+					<div class="col-2">
+						<h3 class="valor02">70</h3>
+					</div>
+					<div class="col-8">
+						<div id="retangulo" class="retangulo"></div>
+					</div>
+					<div class="col-2">
+						<!--<h1>Teste</h1>-->
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_soma">+</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_subtrai">-</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_multiplica">X</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_divide">/</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-calculo">
+				<div class="row text-center">
 					<div class="col">
-						<h5>10</h5>
+						<h3>Defina a equação</h3>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-2">
-						<h1>Teste</h1>
-					</div>
-					<div class="col-8">
-						<h1>Teste</h1>
+					<div class="col-3">
 					</div>
 					<div class="col-2">
-						<h1>Teste</h1>
+						<input id="numero1" type="text">
+						<p class="text-center">Número 01</p>
+					</div>
+					<div class="col-2">
+						<input id="numero1" type="text">
+						<p class="text-center">Operação</p>
+					</div>
+					<div class="col-2">
+						<input id="numero1" type="text">
+						<p class="text-center">Número 02</p>
+					</div>
+					<div class="col-3">
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<script src="./js/hammer.js" type="text/javascript"></script>
+		<!--<script src="https://hammerjs.github.io/dist/hammer.js"></script>-->
+
+		<script>
+			
+			var valor01 = document.getElementById("valor01");
+			var valor02 = document.getElementById("valor02");
+
+			var mcValor01 = new Hammer(valor01);
+			mcValor01.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 0}));
+			mcValor01.on("pan", handleDrag);
+
+			var lastPosX = 0;
+			var lastPosY = 0;
+			var isDragging = false;
+
+			function handleDrag(ev){
+				var elem = ev.target;
+
+				if (!isDragging){
+					isDragging = true;
+					lastPosX = elem.offsetLeft;
+					lastPosY = elem.offsetTop;
+				}
+
+				var posX = ev.deltaX + lastPosX;
+				var posY = ev.deltaY + lastPosY;
+
+				elem.style.left = posX + "px";
+				elem.style.top = posY + "px";
+
+				if (ev.isFinal){
+					isDragging = false;
+				}
+			}
+
+		</script>
+
 	</body>
 
 </html>

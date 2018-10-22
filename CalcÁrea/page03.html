@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<style>
+			html, body {
+			    overflow: hidden;
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
+
+			.container{
+			    margin-top: 50px;
+			}
+
+			.container-titulo{
+				margin-top: 50px;
+			}
+
+			.container-quadrados{
+				margin-top: 50px;
+			}
+
+			.container-pergunta{
+				margin-top: 50px;
+			}
+
+			.container-dica{
+				margin-top: 50px;
+				color: red;
+			}
+
+			.quadrinho{
+				width: 15px;
+				height: 15px;
+				border-style: solid;
+				border-width: 5px;
+				border-color: #42d692;
+				padding: 10px;
+			}
+
+			div .quadrinho:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.quadrinho-selecionado{
+				background-color: red;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="container-titulo">
+				<div class="row text-center">
+					<div class="col">
+						<h4>Imagine que ele fosse formado por quadradinhos em seu interior, cada quadrado vale uma unidade</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-quadrados">
+				<div class="row">
+					<div id="l1-c1" class="col quadrinho"></div>
+					<div id="l1-c2" class="col quadrinho"></div>
+					<div id="l1-c3" class="col quadrinho"></div>
+					<div id="l1-c4" class="col quadrinho"></div>
+					<div id="l1-c5" class="col quadrinho"></div>
+					<div id="l1-c6" class="col quadrinho"></div>
+					<div id="l1-c7" class="col quadrinho"></div>
+					<div id="l1-c8" class="col quadrinho"></div>
+					<div id="l1-c9" class="col quadrinho"></div>
+					<div id="l1-c10" class="col quadrinho"></div>
+					<div id="l1-c11" class="col quadrinho"></div>
+					<div id="l1-c12" class="col quadrinho"></div>
+				</div>
+				<div class="row">
+					<div id="l2-c1" class="col quadrinho"></div>
+					<div id="l2-c2" class="col quadrinho"></div>
+					<div id="l2-c3" class="col quadrinho"></div>
+					<div id="l2-c4" class="col quadrinho"></div>
+					<div id="l2-c5" class="col quadrinho"></div>
+					<div id="l2-c6" class="col quadrinho"></div>
+					<div id="l2-c7" class="col quadrinho"></div>
+					<div id="l2-c8" class="col quadrinho"></div>
+					<div id="l2-c9" class="col quadrinho"></div>
+					<div id="l2-c10" class="col quadrinho"></div>
+					<div id="l2-c11" class="col quadrinho"></div>
+					<div id="l2-c12" class="col quadrinho"></div>
+				</div>
+				<div class="row">
+					<div id="l3-c1" class="col quadrinho"></div>
+					<div id="l3-c2" class="col quadrinho"></div>
+					<div id="l3-c3" class="col quadrinho"></div>
+					<div id="l3-c4" class="col quadrinho"></div>
+					<div id="l3-c5" class="col quadrinho"></div>
+					<div id="l3-c6" class="col quadrinho"></div>
+					<div id="l3-c7" class="col quadrinho"></div>
+					<div id="l3-c8" class="col quadrinho"></div>
+					<div id="l3-c9" class="col quadrinho"></div>
+					<div id="l3-c10" class="col quadrinho"></div>
+					<div id="l3-c11" class="col quadrinho"></div>
+					<div id="l3-c12" class="col quadrinho"></div>
+				</div>
+				<div class="row">
+					<div id="l4-c1" class="col quadrinho"></div>
+					<div id="l4-c2" class="col quadrinho"></div>
+					<div id="l4-c3" class="col quadrinho"></div>
+					<div id="l4-c4" class="col quadrinho"></div>
+					<div id="l4-c5" class="col quadrinho"></div>
+					<div id="l4-c6" class="col quadrinho"></div>
+					<div id="l4-c7" class="col quadrinho"></div>
+					<div id="l4-c8" class="col quadrinho"></div>
+					<div id="l4-c9" class="col quadrinho"></div>
+					<div id="l4-c10" class="col quadrinho"></div>
+					<div id="l4-c11" class="col quadrinho"></div>
+					<div id="l4-c12" class="col quadrinho"></div>
+				</div>
+			</div>
+			<div class="container-pergunta">
+				<div class="row text-center">
+					<div class="col">
+						<h4>Quantos quadrados este retângulo possui, ou seja, quanto vale a sua área?</h4>
+					</div>
+				</div>
+			</div>
+			<div class="container-dica">
+				<div class="row text-center">
+					<div class="col">
+						<h4>DICA: "Cada clique muda a cor do quadrado clicado para auxiliar na contagem"</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			document.getElementById("l1-c1").addEventListener("click", onl1c1Click);
+			document.getElementById("l1-c2").addEventListener("click", onl1c2Click);
+			document.getElementById("l1-c3").addEventListener("click", onl1c3Click);
+			document.getElementById("l1-c4").addEventListener("click", onl1c4Click);
+			document.getElementById("l1-c5").addEventListener("click", onl1c5Click);
+			document.getElementById("l1-c6").addEventListener("click", onl1c6Click);
+			document.getElementById("l1-c7").addEventListener("click", onl1c7Click);
+			document.getElementById("l1-c8").addEventListener("click", onl1c8Click);
+			document.getElementById("l1-c9").addEventListener("click", onl1c9Click);
+			document.getElementById("l1-c10").addEventListener("click", onl1c10Click);
+			document.getElementById("l1-c11").addEventListener("click", onl1c11Click);
+			document.getElementById("l1-c12").addEventListener("click", onl1c12Click);
+
+			document.getElementById("l2-c1").addEventListener("click", onl2c1Click);
+			document.getElementById("l2-c2").addEventListener("click", onl2c2Click);
+			document.getElementById("l2-c3").addEventListener("click", onl2c3Click);
+			document.getElementById("l2-c4").addEventListener("click", onl2c4Click);
+			document.getElementById("l2-c5").addEventListener("click", onl2c5Click);
+			document.getElementById("l2-c6").addEventListener("click", onl2c6Click);
+			document.getElementById("l2-c7").addEventListener("click", onl2c7Click);
+			document.getElementById("l2-c8").addEventListener("click", onl2c8Click);
+			document.getElementById("l2-c9").addEventListener("click", onl2c9Click);
+			document.getElementById("l2-c10").addEventListener("click", onl2c10Click);
+			document.getElementById("l2-c11").addEventListener("click", onl2c11Click);
+			document.getElementById("l2-c12").addEventListener("click", onl2c12Click);
+
+			document.getElementById("l3-c1").addEventListener("click", onl3c1Click);
+			document.getElementById("l3-c2").addEventListener("click", onl3c2Click);
+			document.getElementById("l3-c3").addEventListener("click", onl3c3Click);
+			document.getElementById("l3-c4").addEventListener("click", onl3c4Click);
+			document.getElementById("l3-c5").addEventListener("click", onl3c5Click);
+			document.getElementById("l3-c6").addEventListener("click", onl3c6Click);
+			document.getElementById("l3-c7").addEventListener("click", onl3c7Click);
+			document.getElementById("l3-c8").addEventListener("click", onl3c8Click);
+			document.getElementById("l3-c9").addEventListener("click", onl3c9Click);
+			document.getElementById("l3-c10").addEventListener("click", onl3c10Click);
+			document.getElementById("l3-c11").addEventListener("click", onl3c11Click);
+			document.getElementById("l3-c12").addEventListener("click", onl3c12Click);
+
+			document.getElementById("l4-c1").addEventListener("click", onl4c1Click);
+			document.getElementById("l4-c2").addEventListener("click", onl4c2Click);
+			document.getElementById("l4-c3").addEventListener("click", onl4c3Click);
+			document.getElementById("l4-c4").addEventListener("click", onl4c4Click);
+			document.getElementById("l4-c5").addEventListener("click", onl4c5Click);
+			document.getElementById("l4-c6").addEventListener("click", onl4c6Click);
+			document.getElementById("l4-c7").addEventListener("click", onl4c7Click);
+			document.getElementById("l4-c8").addEventListener("click", onl4c8Click);
+			document.getElementById("l4-c9").addEventListener("click", onl4c9Click);
+			document.getElementById("l4-c10").addEventListener("click", onl4c10Click);
+			document.getElementById("l4-c11").addEventListener("click", onl4c11Click);
+			document.getElementById("l4-c12").addEventListener("click", onl4c12Click);
+
+			function onl1c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c11Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl1c12Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+
+			function onl2c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c11Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c12Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+
+			function onl3c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c11Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c12Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+
+			function onl4c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c11Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c12Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+		</script>
+
+	</body>
+
+</html>
