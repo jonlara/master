@@ -59,6 +59,11 @@
 			.quadrinho-selecionado{
 				background-color: red;
 			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
+
 		</style>
 
 	</head>
@@ -138,6 +143,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+					</div>
+				</div>
+			</div>
 		</div>
 		
 		<script>
@@ -185,391 +196,468 @@
 			document.getElementById("l4-c9").addEventListener("click", onl4c9Click);
 			document.getElementById("l4-c10").addEventListener("click", onl4c10Click);
 
+			var totalSelecionado = 0;
+
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
+
+			function goToNext(){
+				window.location.href = "./page04.html";
+			}
+
+			function mostrarBota(){
+				console.log(totalSelecionado);
+				if (totalSelecionado == 40){
+					console.log("Teste 01");
+					divBotaoProximo.innerHTML = "";
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					console.log("Teste 02");
+					divBotaoProximo.innerHTML = "";
+				}
+			}
+
 			function onl1c1Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c2Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c3Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c4Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c5Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c6Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c7Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c8Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c9Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl1c10Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
-			}
-
-			function onl1c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl1c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
+				mostrarBota();
 			}
 
 
 			function onl2c1Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c2Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c3Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c4Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c5Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c6Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c7Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c8Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c9Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl2c10Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
-			}
-
-			function onl2c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
+				mostrarBota();
 			}
 
 
 			function onl3c1Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c2Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c3Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c4Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c5Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c6Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c7Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c8Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c9Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl3c10Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
-			}
-
-			function onl3c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
+				mostrarBota();
 			}
 
 
 			function onl4c1Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c2Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c3Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c4Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c5Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c6Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c7Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c8Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c9Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
+				mostrarBota();
 			}
 
 			function onl4c10Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
+					totalSelecionado -= 1;
 				} else {
 					this.style.backgroundColor = "red";
+					totalSelecionado += 1;
 				}
-			}
-
-			function onl4c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
+				mostrarBota();
 			}
 		</script>
 
