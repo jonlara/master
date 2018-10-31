@@ -1,44 +1,24 @@
 <!DOCTYPE html>
 <html>
-	
+
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
 		<title>CalcÁrea</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+		
 		<style>
-			html, body {
-			    overflow: hidden;
-			    margin: 0;
-			}
-
-			body {
-			    -webkit-perspective: 500;
-			    -moz-perspective: 500;
-			    perspective: 500;
-			}
-
-			.container{
-			    margin-top: 50px;
-			}
-
 			.container-titulo{
+				margin-top: 50px;
+			}
+
+			.container-subtitulo{
 				margin-top: 50px;
 			}
 
 			.container-quadrados{
 				margin-top: 50px;
-			}
-
-			.container-pergunta{
-				margin-top: 50px;
-			}
-
-			.container-dica{
-				margin-top: 50px;
-				color: red;
 			}
 
 			.quadrinho{
@@ -67,9 +47,17 @@
 
 		<div class="container">
 			<div class="container-titulo">
-				<div class="row text-center">
+				<div class="row">
 					<div class="col">
-						<h4>Imagine que ele fosse formado por quadradinhos em seu interior, cada quadrado vale uma unidade</h4>
+						<h3>Olhe novamente o retângulo de 10x4, aquele cuja área que você descobriu que era 40, através da contagem dos quadradinhos...</h3>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-subtitulo">
+				<div class="row">
+					<div class="col">
+						<h4>* E como você dividiria esse retângulo em dez tiras de um centímetro?</h4>
 					</div>
 				</div>
 			</div>
@@ -124,23 +112,14 @@
 					<div id="l4-c10" class="col quadrinho"></div>
 				</div>
 			</div>
-			<div class="container-pergunta">
-				<div class="row text-center">
-					<div class="col">
-						<h4>Quantos quadrados este retângulo possui, ou seja, quanto vale a sua área?</h4>
-					</div>
-				</div>
-			</div>
-			<div class="container-dica">
-				<div class="row text-center">
-					<div class="col">
-						<h4>DICA: "Cada clique muda a cor do quadrado clicado para auxiliar na contagem"</h4>
-					</div>
-				</div>
-			</div>
 		</div>
-		
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="./js/hammer.js"></script>
+
 		<script>
+
 			document.getElementById("l1-c1").addEventListener("click", onl1c1Click);
 			document.getElementById("l1-c2").addEventListener("click", onl1c2Click);
 			document.getElementById("l1-c3").addEventListener("click", onl1c3Click);
@@ -265,22 +244,6 @@
 				}
 			}
 
-			function onl1c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl1c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
 
 			function onl2c1Click(){
 				if (this.style.backgroundColor == "red"){
@@ -362,23 +325,6 @@
 				}
 			}
 
-			function onl2c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-
 			function onl3c1Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
@@ -459,23 +405,6 @@
 				}
 			}
 
-			function onl3c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c12Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-
 			function onl4c1Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
@@ -549,22 +478,6 @@
 			}
 
 			function onl4c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c11Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c12Click(){
 				if (this.style.backgroundColor == "red"){
 					this.style.backgroundColor = "white";
 				} else {

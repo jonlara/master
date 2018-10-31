@@ -83,6 +83,22 @@
 				border-width: 5px;
 				border-color: red;
 			}
+
+			.container-mensagem{
+				padding-top: 50px;
+			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
+
+			.mensagem-erro{
+				color: red;
+			}
+
+			.mensagem-sucesso{
+				color: green;
+			}
 		</style>
 
 	</head>
@@ -113,6 +129,18 @@
 					</div>
 				</div>
 			</div>
+			<div class="container-mensagem">
+				<div class="row text-center">
+					<div id="mensagem-resultado" class="col">
+					</div>
+				</div>
+			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+					</div>
+				</div>
+			</div>
 		</div>
 
 
@@ -121,25 +149,49 @@
 		<script src="./js/hammer.js"></script>
 
 		<script>
+
+			function goToNext(){
+				window.location.href = "./page02.html";
+			}
+
 			document.getElementById("quadrado").addEventListener("click", onQuadradoClick);
 			document.getElementById("retangulo").addEventListener("click", onRetanguloClick);
 			document.getElementById("losango").addEventListener("click", onLosangoClick);
 			document.getElementById("paralelogramo").addEventListener("click", onParalelogramoClick);
 
+			var divMensagem = document.getElementById("mensagem-resultado");
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var mensagemErro = "<h3 class='mensagem-erro'>Você clicou na imagem errada</h3>";
+			var mensagemSucesso = "<h3 class='mensagem-sucesso'>Você clicou na imagem certa</h3>";
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
+
 			function onQuadradoClick(){
 				console.log("Clicou errado");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemErro;
+				divBotaoProximo.innerHTML = "";
 			}
 
 			function onRetanguloClick(){
 				console.log("Clicou certo");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemSucesso;
+				divBotaoProximo.innerHTML = "";
+				divBotaoProximo.innerHTML += botao;
 			}
 
 			function onLosangoClick(){
 				console.log("Clicou errado");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemErro;
+				divBotaoProximo.innerHTML = "";
 			}
 
 			function onParalelogramoClick(){
 				console.log("Clicou errado");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemErro;
+				divBotaoProximo.innerHTML = "";
 			}
 		</script>
 
