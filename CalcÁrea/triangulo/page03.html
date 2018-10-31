@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<style>
+			html, body {
+			    overflow: hidden;
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
+
+			.container{
+			    margin-top: 50px;
+			}
+
+			.container-calculo{
+				margin-top: 50px;
+			}
+
+			.container-calculo input{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.valor01{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+
+				position: absolute;
+
+			}
+
+			.valor02{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.retangulo{
+				background: #42d692; width: 700px; height: 350px;
+			}
+
+			.sinal_soma{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_subtrai{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_multiplica{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_divide{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row text-center">
+				<div class="col" >
+					<h4>Observe o triângulo e o retângulo novamente. Como podemos chegar num triângulo retângulo a partir do retângulo?</h4>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col">
+					<h6>DICA: Tente recortar o retângulo para chegar em um triângulo retângulo!!!!!!</h6>
+				</div>
+			</div>
+			
+			<div class="container-figuras">
+				
+				<div class="row text-center">
+					
+					<div class="col-10">
+						<div class="row">
+							<div class="col-md-5">
+								<canvas id="trianguloRetangulo" width="400" height="400"></canvas>
+							</div>
+							<div class="col-md-5">
+								<canvas id="retangulo" width="600" height="400"></canvas>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		
+
+			<div class="row">
+				<div class="row text-center">
+					<div class="col">
+						<h3>Ainda não conseguiu encontra a fórmula?</h3>
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="row text-center">
+					<div class="col">
+						<button>Próxima</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+		<!--<script src="https://hammerjs.github.io/dist/hammer.js"></script>-->
+
+		<script>
+			
+
+			function montarTriangulo() {
+		         	canvas = document.getElementById("trianguloRetangulo");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,400);
+				    ctx.lineTo(380,400);
+				    ctx.lineTo(380,0);
+				    ctx.fill();
+				  }
+			}
+
+			function montarRetangulo() {
+		         	canvas = document.getElementById("retangulo");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,0);
+				    ctx.lineTo(0,400);
+				    ctx.lineTo(600,400);
+				    ctx.lineTo(600,0);
+				    ctx.fill();
+				  }
+			}
+
+			window.onload=function(){ 
+			       montarRetangulo();
+			       montarTriangulo();
+			};
+
+		</script>
+
+	</body>
+
+</html>

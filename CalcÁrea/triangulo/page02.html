@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<style>
+			html, body {
+			    overflow: hidden;
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
+
+			.container{
+			    margin-top: 50px;
+			}
+
+			.container-calculo{
+				margin-top: 50px;
+			}
+
+			.container-calculo input{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.valor01{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+
+				position: absolute;
+
+			}
+
+			.valor02{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.retangulo{
+				background: #42d692; width: 700px; height: 350px;
+			}
+
+			.sinal_soma{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_subtrai{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_multiplica{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_divide{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row text-center">
+				<div class="col" >
+					<h4>De que forma podemos calcular a área de um triângulo retângulo?</h4>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col">
+					<h6>Você consegue ver alguma semelhança do triângulo retângulo com um retângulo?</h6>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col">
+					<h6>Já sabemos que a fórmula para calcular a área de um retângulo é base x altuda. </h6>
+				</div>
+			</div>
+				<div class="row text-center">
+				<div class="col">
+					<h6>E a fórmula da área de um triângulo retângulo? Seria possivel chegar nela através da área do retângulo? </h6>
+				</div>
+			</div>
+			<div class="container-figuras">
+				
+				<div class="row text-center">
+					
+					<div class="col-md-2">
+                        <!--<h1>Teste</h1>-->
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="sinal_soma">b</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="sinal_subtrai">h</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="sinal_multiplica">D</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="sinal_divide">d</h3>
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-8">
+						<div class="row">
+							<div class="col-md-5">
+								<canvas id="trianguloRetangulo" width="150" height="150"></canvas>
+							</div>
+							<div class="col-md-5">
+								<canvas id="retangulo" width="250" height="150"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
+						<!--<h1>Teste</h1>-->
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_soma">+</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_subtrai">-</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_multiplica">X</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h3 class="sinal_divide">/</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-calculo">
+				<div class="row text-center">
+					<div class="col-md-10">
+						<h3>Defina a equação</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						<input id="numero1" type="text">
+						<p class="text-center">Número 01</p>
+					</div>
+					<div class="col-2">
+						<input id="numero1" type="text">
+						<p class="text-center">Operação</p>
+					</div>
+					<div class="col-2">
+						<input id="numero1" type="text">
+						<p class="text-center">Número 02</p>
+					</div>
+                    <div class="col-2">
+                        <input id="numero1" type="text">
+                        <p class="text-center">Operação</p>
+                    </div>
+                    <div class="col-2">
+                        <input id="numero1" type="text">
+                        <p class="text-center">Número 02</p>
+                    </div>
+					
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="row text-center">
+					<div class="col">
+						<h3>Ainda não conseguiu encontra a fórmula?</h3>
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="row text-center">
+					<div class="col">
+						<button>Próxima</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+		<!--<script src="https://hammerjs.github.io/dist/hammer.js"></script>-->
+
+		<script>
+			
+
+			function montarTriangulo() {
+		         	canvas = document.getElementById("trianguloRetangulo");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,150);
+				    ctx.lineTo(150,150);
+				    ctx.lineTo(150,0);
+				    ctx.fill();
+				  }
+			}
+
+			function montarRetangulo() {
+		         	canvas = document.getElementById("retangulo");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,20);
+				    ctx.lineTo(0,130);
+				    ctx.lineTo(250,130);
+				    ctx.lineTo(250,20);
+				    ctx.fill();
+				  }
+			}
+
+			window.onload=function(){ 
+			       montarRetangulo();
+			       montarTriangulo();
+			};
+
+		</script>
+
+	</body>
+
+</html>

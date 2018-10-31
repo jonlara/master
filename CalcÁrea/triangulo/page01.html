@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<style>
+			html, body {
+			    overflow: hidden;
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
+
+			.animate {
+			    -webkit-transition: all .3s;
+			    -moz-transition: all .3s;
+			    transition: all .3s;
+			}
+
+			#hit {
+			    padding: 10px;
+			}
+
+			#log {
+			    position: absolute;
+			    padding: 10px;
+			}
+
+			.container{
+			    margin-top: 50px;
+			}
+
+			.container-figuras{
+			    padding-top: 100px;
+			    padding-bottom: 100px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="log"></div>
+
+		<div class="container">
+			<div class="row text-center">
+				<div class="col">
+					<h4>Todas são consideradas triângulos por respeitarem as definições, mas qual deles é um triângulo retângulo? (clique sobre a figura)</h4>
+				</div>
+			</div>
+			<div class="container-figuras">
+				<div class="row">
+					<div class="col-4">
+						  <canvas id="canvasTriangulo" width="150" height="150">
+    
+   							</canvas>
+  
+					</div>
+					<div class="col-4">
+						 <canvas id="canvasTriangulo2" width="150" height="150">
+    
+   							</canvas>
+					</div>
+					<div class="col-4">
+						 <canvas id="canvasTriangulo3" width="150" height="150">
+    
+   							</canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="./js/hammer.js"></script>
+
+		<script>
+
+			
+			function onQuadradoClick(){
+				console.log("Clicou errado");
+			}
+
+			function onRetanguloClick(){
+				console.log("Clicou certo");
+			}
+
+			function onLosangoClick(){
+				console.log("Clicou errado");
+			}
+
+			function onParalelogramoClick(){
+				console.log("Clicou errado");
+			}
+
+			function montarTriangulo1() {
+		         	canvas = document.getElementById("canvasTriangulo");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,0);
+				    ctx.lineTo(0,150);
+				    ctx.lineTo(150,75);
+				    ctx.fill();
+				  }
+			}
+
+			function montarTriangulo2() {
+		         	canvas = document.getElementById("canvasTriangulo2");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,150);
+				    ctx.lineTo(150,150);
+				    ctx.lineTo(75,0);
+				    ctx.fill();
+				  }
+			}
+
+			function montarTriangulo3() {
+		         	canvas = document.getElementById("canvasTriangulo3");
+		              
+		            if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+
+				    ctx.beginPath();
+				    ctx.moveTo(0,150);
+				    ctx.lineTo(150,150);
+				    ctx.lineTo(150,0);
+				    ctx.fill();
+				  }
+			}
+
+
+			window.onload=function(){ 
+			       montarTriangulo1();
+			       montarTriangulo2();
+			       montarTriangulo3();
+			};
+		</script>
+
+	</body>
+
+</html>
