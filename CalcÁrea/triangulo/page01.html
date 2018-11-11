@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="./js/hammer.js"></script>
 
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
 		<title>CalcÁrea</title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 		
 		<style>
 			html, body {
@@ -44,6 +49,12 @@
 			    padding-bottom: 100px;
 			}
 
+			.figuras:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
 		</style>
 
 	</head>
@@ -61,49 +72,51 @@
 			<div class="container-figuras">
 				<div class="row">
 					<div class="col-4">
-						  <canvas id="canvasTriangulo" width="150" height="150">
+						  <canvas id="canvasTriangulo" class="figuras" width="150" height="150">
     
    							</canvas>
   
 					</div>
 					<div class="col-4">
-						 <canvas id="canvasTriangulo2" width="150" height="150">
+						 <canvas id="canvasTriangulo2" class="figuras" width="150" height="150">
     
    							</canvas>
 					</div>
 					<div class="col-4">
-						 <canvas id="canvasTriangulo3" width="150" height="150">
+						 <canvas id="canvasTriangulo3" class="figuras" width="150" height="150">
     
    							</canvas>
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				 <div id="alertErro" class="alert alert-danger fade-in" role="alert">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			        Clicou errado
+			    </div>
+			</div> 
 		</div>
 
 
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		<script src="./js/hammer.js"></script>
-
+		
 		<script>
-
+			document.getElementById("canvasTriangulo").addEventListener("click", onCanvasTriangulo);
+			document.getElementById("canvasTriangulo2").addEventListener("click", onCanvasTriangulo2);
+			document.getElementById("canvasTriangulo3").addEventListener("click", onCanvasTriangulo3);
 			
-			function onQuadradoClick(){
-				console.log("Clicou errado");
+			function onCanvasTriangulo(){
+				$(".alert").alert("show");
 			}
 
-			function onRetanguloClick(){
-				console.log("Clicou certo");
+			function onCanvasTriangulo2(){
+				$(".alert").alert("close");
 			}
 
-			function onLosangoClick(){
-				console.log("Clicou errado");
+			function onCanvasTriangulo3(){
+				window.location = "page02.html";
 			}
 
-			function onParalelogramoClick(){
-				console.log("Clicou errado");
-			}
-
+		
 			function montarTriangulo1() {
 		         	canvas = document.getElementById("canvasTriangulo");
 		              
