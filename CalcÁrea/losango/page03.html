@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<title>Área Losango</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<style>
+			html, body {
+			    overflow: hidden;
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
+
+			.animate {
+			    -webkit-transition: all .3s;
+			    -moz-transition: all .3s;
+			    transition: all .3s;
+			}
+
+			#hit {
+			    padding: 10px;
+			}
+
+			#log {
+			    position: absolute;
+			    padding: 10px;
+			}
+
+			.container{
+			    margin-top: 50px;
+			}
+
+			.container-figuras{
+			    padding-top: 100px;
+			    padding-bottom: 100px;
+			}
+
+			.quadrado{
+				background: #42d692; width: 150px; height: 150px;
+			}
+
+			div .quadrado:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.retangulo{
+				background: #42d692; width: 200px; height: 150px;
+			}
+
+			div .retangulo:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.losango{
+				background: #42d692; width: 150px; height: 150px; transform: rotate(45deg); -ms-transform: rotate(45deg); -webkit-transform: rotate(45deg);
+			}
+
+			div .losango:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.paralelogramo{
+				background: #42d692; width: 200px; height: 150px; -webkit-transform: skew(20deg); -moz-transform: skew(20deg); -o-transform: skew(20deg);
+			}
+
+			div .paralelogramo:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+			.balao {
+				float:left;
+				background-color:#39c;
+				border-top:10px solid #39c;
+				border-left:10px solid transparent;
+				background-clip: padding-box;
+				padding: 0 10px 10px 10px;
+			}
+			</style>
+
+	</head>
+
+	<body>
+		
+		<div id="log"></div>
+
+		<div class="container" align="right"> 
+			<div class="row text-center">
+				<div class="col">
+					<h4>Como transformar esse losango em um triângulo sem afetar a sua área?</h4>
+				</div>
+			</div>
+			<div class="" align="center" title="Dica: Sabendo apenas sua diagonal maior (D) e a diagonal menor (d).">
+				<div class="col">
+					<div class="col">					
+						<canvas id="losango">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="row text-center">
+					<div class="col">
+						<div class="balao" title="Clique na figura, a figura será recortada.">Ajuda</div>
+					</div>
+					<div class="col">
+						<button type="button" onclick="ProximaPagina()">Avançar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="./js/hammer.js"></script>
+
+		<script>
+			document.getElementById("losango").addEventListener("click", onDesenhar);
+			//document.getElementById("triagulo").addEventListener("click", onDesenhar);
+			
+			var valorPontoX;
+			var valorPontoY;
+			quantidadeClique = 1;
+			
+			losango.onmousedown = function (ev) {
+			
+				valorPontoY = ev.clientY;
+			
+			}
+			
+			losango.onmouseup = function (ev) {
+			
+				valorPontoX = ev.clientX;
+			
+			}
+			
+			losango.onclick = function() {
+				quantidadeClique++;			
+			}
+			
+			
+			function onDesenhar(ev) {
+
+				if (quantidadeClique == 1)
+					MontarTriangulo();
+				if (quantidadeClique > 1)
+					MontarTrianguloBase();
+				
+			}
+			
+			function MontarTriangulo() {
+
+				var canvas = document.getElementById("losango");
+				var ctx = canvas.getContext('2d');
+							
+				ctx.beginPath();
+				// setamos a cor como preta para depois criar o retangulo
+				//ctx.fillStyle = "#a52a2a";
+				ctx.fillStyle = "white";
+				ctx.strokeStyle = "black";
+				
+				//Desenha o triagulo
+				ctx.moveTo(125, 0);
+				ctx.lineTo(250, 75);
+				ctx.lineTo(0, 75);
+				ctx.lineTo(125, 0);				
+								
+				ctx.fill();
+				ctx.closePath();	
+				ctx.stroke();
+			
+			}
+
+			function MontarTrianguloBase() {
+			
+				var canvas = document.getElementById("losango");
+				var ctx = canvas.getContext('2d');
+							
+				ctx.beginPath();
+				// setamos a cor como preta para depois criar o retangulo
+				//ctx.fillStyle = "#a52a2a";
+				ctx.fillStyle = "white";
+				ctx.strokeStyle = "black";
+				
+				//Desenha o triagulo
+				ctx.moveTo(125, 125);
+				ctx.lineTo(125, 75);
+				ctx.lineTo(125, 250);
+				ctx.lineTo(125, 75);				
+
+				/*
+				ctx.moveTo(125, 0);
+				ctx.lineTo(125, 75);
+				ctx.lineTo(250, 75);
+				ctx.lineTo(125, 0);				
+				*/
+				
+				ctx.fill();
+				ctx.closePath();	
+				ctx.stroke();				
+			
+			}
+			
+			
+			function CriarLosango() {
+			
+				var canvas = document.getElementById("losango");
+				var ctx = canvas.getContext('2d');
+			
+				console.log("Colorindo canvas no plano x,y");			
+				
+				ctx.beginPath();
+				// setamos a cor como preta para depois criar o retangulo
+				ctx.fillStyle = "white"; //"#00027F";
+				ctx.strokeStyle = "black";
+				
+				//Desenha o losango
+				ctx.moveTo(125,0);
+				ctx.lineTo(250,75);
+				ctx.lineTo(125,150);
+				ctx.lineTo(0, 75);
+				ctx.lineTo(125,0);				
+				
+				ctx.fill();
+				ctx.closePath();
+				ctx.stroke();				
+			
+			}			
+						
+			function ProximaPagina() {
+			
+				window.location.href = "page04.html";
+			
+			}			
+			
+			window.onload=function(){
+			
+				CriarLosango();
+				
+			};
+			 			
+		</script>
+
+	</body>
+
+</html>

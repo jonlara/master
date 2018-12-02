@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Desenhando na canvas</title>
+</head>
+<body>
+	<div align="left">
+		<canvas id="quadro" style="background:beige"></canvas>
+	</div>
+	<div class="col">
+		<div class="col">
+			<div class="col">
+				<button id="valida" type="button" onclick="ValidarFigura();">Validar Figura</button>
+			</div>
+		</div>
+	</div>
+	
+	
+<script>
+
+    window.onload = function () {
+	
+        //todo conteúdo ficará aqui
+		
+		var largura = 700;
+		var altura = 500;
+		 
+		var quadro = document.getElementById("quadro");
+		quadro.setAttribute("width", largura);
+		quadro.setAttribute("height", altura);
+		 
+		var lapis = quadro.getContext("2d");
+		 
+		var desenhando = false;		
+
+		var arrayPontos = new Array();
+		var indiceArrayPontos = 0;
+
+		quadro.onmousedown = function (evt) {
+		
+			lapis.moveTo(evt.clientX, evt.clientY);
+			desenhando = true;
+			
+			arrayPontos[indiceArrayPontos] = new Array(evt.clientX, evt.clientY);
+			indiceArrayPontos++;	
+			
+		}
+		
+		quadro.onmouseup = function (evt) {
+		
+			desenhando = false;
+			arrayPontos[indiceArrayPontos] = new Array(evt.clientX, evt.clientY);
+			
+		}
+		
+		quadro.onmousemove = function (evt) {
+		
+			if (desenhando) {
+				lapis.lineTo(evt.clientX, evt.clientY);
+				lapis.stroke();				
+				
+				//alert('Posição X: ' + evt.clientX);
+				//alert('Posição Y: ' + evt.clientY);
+				
+			}
+			
+		}
+		
+		valida.onclick = function ValidarFigura() {
+			
+			for (var indice in arrayPontos) {
+			
+				var ponto = arrayPontos[indice];
+				var valorPontoX = ponto[0];
+				var valorPontoY = ponto[1];
+				
+				var ponto0;
+				var ponto1;
+				var ponto2;
+				var ponto3;
+				var ponto4;
+		
+				if (indice == 0) {
+					if (valorPontoX >= 300 && valorPontoX <= 330) {
+						if (valorPontoY >= 40 && valorPontoY <= 60) {
+							ponto0 = true;
+						}
+					}
+				} else if (indice == 1) {
+					if (valorPontoX >= 140 && valorPontoX <= 190) {
+						if (valorPontoY >= 230 && valorPontoY <= 256) {
+							ponto1 = true;
+						}				
+					}				
+				}			
+		
+			}
+
+			if (ponto0 && ponto1)
+				alert('Figura correta');
+			else
+				alert('Figura errada');		
+			
+		}
+		
+    };	
+	
+</script>	
+
+</body>
+</html>
